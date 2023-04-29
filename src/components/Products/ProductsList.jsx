@@ -6,7 +6,7 @@ const ProductsList = () => {
         <div className="bg-red-300 border-[2px] border-card-stroke w-[900px] flex justify-center items-start" >
             <ProductCard />
             <ProductCard />
-            <ProductCard />
+            <ProductCard  />
 
         </div>
     );

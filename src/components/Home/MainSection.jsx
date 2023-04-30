@@ -1,5 +1,6 @@
 import React from 'react';
 import imag from '../../assets/images/homeImage.png';
+import { Link } from 'react-router-dom';
 
 export const MainSection = () => {
   return (
@@ -12,9 +13,11 @@ export const MainSection = () => {
             For the best prices, in one click and delivered to your doorstep
           </p>
         </div>
-        <button className="bg-white text-main px-4 py-3 rounded translate-x-12 translate-y-5 hover:scale-110 duration-200 hover:shadow-xl">
-          Shop Now!
-        </button>
+        <Link to="/products">
+          <button className="bg-white text-main px-4 py-3 rounded translate-x-12 translate-y-5 hover:scale-110 duration-200 hover:shadow-xl">
+            Shop Now!
+          </button>
+        </Link>
       </div>
 
       <img className="h-full" src={imag} alt="" />

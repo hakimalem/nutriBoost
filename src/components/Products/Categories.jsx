@@ -2,8 +2,10 @@ import React from "react";
 import { Link } from 'react-router-dom';
 const Categories = () => {
     return (
-        <div className="flex flex-col bg-gray-100 w-64 text-text-black font-poppinsRegular bg-card-gray rounded-md">
-            <h2 className="font-bold text-lg p-4 font-poppinsMedium ">Categories</h2>
+        <div className="flex flex-col  w-64 text-text-gray2  font-poppinsRegular bg-card-gray rounded-md my-[5%]">
+            <h2 className="text-2xl p-4 font-poppinsRegular text-text-black">Categories</h2>
+
+
             <ul className="p-4">
                 <li className="my-2">
                     {/* <Link to="/covid-19-preventatives" className="text-gray-700 hover:text-blue-500"> */}

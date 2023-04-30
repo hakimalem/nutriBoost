@@ -19,7 +19,7 @@ module.exports = {
         login: "url('./src/assets/images/bg-login.png')",
         signup: "url('./src/assets/images/signup.png')",
       },
-        fontFamily: {
+      fontFamily: {
         poppinsRegular: ["PoppinsRegular", 'sans-serif'],
         poppinsMedium: ["PoppinsMedium", 'sans-serif'],
         poppinsBold: ["PoppinsBold", 'sans-serif'],
@@ -31,13 +31,17 @@ module.exports = {
       colors: {
         'primary': '#00C793',
         'green2': '#E7F4F7',
+        'green3': '#3D8F8A',
         'dragos-orange': '#F66729',
         'dragos-input': '#F5F7FF',
         'card-stroke': '#E0E9FF',
         'text-black': '#344863',
         'text-gray': '#A8B1C1',
         'text-yellow': '#F8A300',
-        'card-gray': '#F3F5FA'
+        'card-gray': '#F3F5FA',
+        'text-gray2': '#6C7B97',
+        'gray-blue': '#E4E8F3',
+        'pink1': '#F35C9D'
       },
     },
     plugins: [],

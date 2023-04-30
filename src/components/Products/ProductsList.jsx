@@ -3,11 +3,12 @@ import ProductCard from "./ProductCard";
 
 const ProductsList = () => {
     return (
-        <div className="bg-red-300 border-[2px] border-card-stroke w-[900px] flex justify-center items-start" >
+        <div className="grid md:grid-cols-4 lg:grid-cols-4 sm:grid-cols-2 w-[105%] justify-items-center px-[1%] border-card-stroke" >
             <ProductCard />
             <ProductCard />
             <ProductCard />
-
+            <ProductCard />
+            <ProductCard />
         </div>
     );
 };

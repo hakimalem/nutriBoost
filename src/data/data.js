@@ -31,31 +31,71 @@ export const offers = [
 ];
 
 export const offers2 = [
-  { title: 'SAVE 25%', desc: 'ON EVERY ORDER!', image: './public/fitness.png' },
+  {
+    title: 'SAVE 25%',
+    desc: 'ON EVERY ORDER!',
+    image: './public/fitness.png',
+  },
   {
     title: 'FREE DELIVERY',
     desc: 'ON YOUR FIRST ORDER',
     image: './public/delivry.png',
   },
-  { title: 'SAVE 25%', desc: 'ON EVERY ORDER!', image: './public/fitness.png' },
+  {
+    title: 'SAVE 25%',
+    desc: 'ON EVERY ORDER!',
+    image: './public/fitness.png',
+  },
   {
     title: 'FREE DELIVERY',
     desc: 'ON YOUR FIRST ORDER',
     image: './public/delivry.png',
   },
-  { title: 'SAVE 25%', desc: 'ON EVERY ORDER!', image: './public/fitness.png' },
+  {
+    title: 'SAVE 25%',
+    desc: 'ON EVERY ORDER!',
+    image: './public/fitness.png',
+  },
   {
     title: 'FREE DELIVERY',
     desc: 'ON YOUR FIRST ORDER',
     image: './public/delivry.png',
   },
-  { title: 'SAVE 25%', desc: 'ON EVERY ORDER!', image: './public/fitness.png' },
+  {
+    title: 'SAVE 25%',
+    desc: 'ON EVERY ORDER!',
+    image: './public/fitness.png',
+  },
   {
     title: 'FREE DELIVERY',
     desc: 'ON YOUR FIRST ORDER',
     image: './public/delivry.png',
   },
-  { title: 'SAVE 25%', desc: 'ON EVERY ORDER!', image: './public/fitness.png' },
+  {
+    title: 'SAVE 25%',
+    desc: 'ON EVERY ORDER!',
+    image: './public/fitness.png',
+  },
+  {
+    title: 'FREE DELIVERY',
+    desc: 'ON YOUR FIRST ORDER',
+    image: './public/delivry.png',
+  },
+  {
+    title: 'SAVE 25%',
+    desc: 'ON EVERY ORDER!',
+    image: './public/fitness.png',
+  },
+  {
+    title: 'FREE DELIVERY',
+    desc: 'ON YOUR FIRST ORDER',
+    image: './public/delivry.png',
+  },
+  {
+    title: 'SAVE 25%',
+    desc: 'ON EVERY ORDER!',
+    image: './public/fitness.png',
+  },
   {
     title: 'FREE DELIVERY',
     desc: 'ON YOUR FIRST ORDER',

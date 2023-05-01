@@ -5,6 +5,7 @@ import { Layout } from './components/common/Layout';
 import { Home } from './pages/Home';
 import { SingleProduct } from './pages/SingleProduct';
 import ProductsPage from './pages/ProductsPage';
+import { NotFound } from './pages/NotFound';
 
 function App() {
   return (
@@ -14,9 +15,10 @@ function App() {
           <Route index element={<Home />} />
           <Route path="products" element={<ProductsPage />} />
           <Route path="products/:id" element={<SingleProduct />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
         <Route path="/login" element={<Login />} />
-        <Route path="signup" element={<Signup />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </Router>
   );

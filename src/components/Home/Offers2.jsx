@@ -19,9 +19,11 @@ export const Offers2 = () => {
         slidesNumber={[2, 2, 1]}
         delay={4500}
       >
-        {offers2.map(({ title, desc, image }) => (
-          <SwiperSlide>
-            <div className="flex bg-[#DDF2FF] justify-between px-14 py-5 items-center rounded-md">
+        {offers2.map(({ title, desc, image }, index) => (
+          <SwiperSlide key={index}>
+            <div
+              className={`flex bg-[#DDF2FF] justify-between px-14 py-5 items-center rounded-md`}
+            >
               <div className="flex flex-col items-start gap-3 justify-between">
                 <h1 className="text-4xl font-bold ">{title}</h1>
                 <h2 className="text-xl">{desc}</h2>
@@ -29,7 +31,7 @@ export const Offers2 = () => {
                   to="#"
                   className="flex items-center gap-1 hover:scale-110 duration-200 hover:underline p-2 mt-10"
                 >
-                  <p className='text-xl'>Shop now</p>
+                  <p className="text-xl">Shop now</p>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"

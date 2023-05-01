@@ -61,9 +61,9 @@ export default function CustomSwiper({
         </div>
       </div>
       <Swiper
-        autoplay={{
-          delay,
-        }}
+        // autoplay={{
+        //   delay,
+        // }}
         watchSlidesProgress={true}
         loop={true}
         modules={[Navigation, Pagination, Autoplay]}

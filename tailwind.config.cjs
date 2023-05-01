@@ -20,20 +20,6 @@ module.exports = {
         signup: "url('./src/assets/images/signup.png')",
       },
       fontFamily: {
-<<<<<<< HEAD
-        poppinsRegular: ["PoppinsRegular", 'sans-serif'],
-        poppinsMedium: ["PoppinsMedium", 'sans-serif'],
-        poppinsBold: ["PoppinsBold", 'sans-serif'],
-        poppinsExtraBold: ["PoppinsExtraBold", 'sans-serif'],
-        poppinsLight: ["PoppinsLight", 'sans-serif'],
-        poppinsThin: ["PoppinsThin", 'sans-serif'],
-        poppinsBlack: ["PoppinsBlack", 'sans-serif'],
-      },
-      colors: {
-        'primary': '#00C793',
-        'green2': '#E7F4F7',
-        'green3': '#3D8F8A',
-=======
         poppinsRegular: ['PoppinsRegular', 'sans-serif'],
         poppinsMedium: ['PoppinsMedium', 'sans-serif'],
         poppinsBold: ['PoppinsBold', 'sans-serif'],
@@ -45,8 +31,7 @@ module.exports = {
       colors: {
         primary: '#00C793',
         green2: '#E7F4F7',
-        'green-light': '#DFFDFB',
->>>>>>> 3e4439b60ba65d3cd565fb881fa53997fcb333dc
+        green3: '#3D8F8A',
         'dragos-orange': '#F66729',
         'dragos-input': '#F5F7FF',
         'card-stroke': '#E0E9FF',
@@ -54,13 +39,10 @@ module.exports = {
         'text-gray': '#A8B1C1',
         'text-yellow': '#F8A300',
         'card-gray': '#F3F5FA',
-<<<<<<< HEAD
         'text-gray2': '#6C7B97',
         'gray-blue': '#E4E8F3',
-        'pink1': '#F35C9D'
-=======
+        pink1: '#F35C9D',
         'bg-green-light': '#F0FBF7',
->>>>>>> 3e4439b60ba65d3cd565fb881fa53997fcb333dc
       },
     },
     plugins: [],

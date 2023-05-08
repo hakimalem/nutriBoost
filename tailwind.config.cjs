@@ -15,6 +15,9 @@ module.exports = {
       grey: { DEFAULT: '#5A5A5D', light: '#BEBEBF' },
     },
     extend: {
+      gridTemplateColumns: {
+        13: 'repeat(13, minmax(0, 1fr))',
+      },
       backgroundImage: {
         login: "url('./src/assets/images/bg-login.png')",
         signup: "url('./src/assets/images/signup.png')",
@@ -45,6 +48,6 @@ module.exports = {
         'bg-green-light': '#F0FBF7',
       },
     },
-    plugins: [],
+    plugins: [require('daisyui')],
   },
 };

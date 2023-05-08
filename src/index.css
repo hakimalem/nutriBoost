@@ -3,30 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* .custom-next,.custom-prev {
-  padding: 10px;
-} */
-
-/* .swiper-button-next,
-.swiper-button-prev {
-  cursor: pointer;
-  background-color: #dffdfb;
-  color: #00c793;
-  border-radius: 5px;
-}
-.swiper-button-next::after,
-.swiper-button-prev::after {
-  content: none;
+body {
+  font-family: Poppins;
 }
 
-.swiper-button-next {
-  right: -75px;
-}
-
-.buttons-container {
-  position: absolute;
-  top: 40px;
-  right: 110px;
-  display: flex;
-  gap: 80px;
-} */

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 // Import Swiper React components
 import { Swiper } from 'swiper/react';
 
@@ -61,9 +61,9 @@ export default function CustomSwiper({
         </div>
       </div>
       <Swiper
-        // autoplay={{
-        //   delay,
-        // }}
+        autoplay={{
+          delay,
+        }}
         watchSlidesProgress={true}
         loop={true}
         modules={[Navigation, Pagination, Autoplay]}

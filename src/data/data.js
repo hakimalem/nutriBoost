@@ -165,3 +165,37 @@ export const testimonials = [
     text: '“Medical order is the valuable business 0 resource we have EVER order has got I am need. This is simply! Medical at order was worth o my company.”',
   },
 ];
+
+
+export const reviews = [
+  {
+    name: 'Allem Hakim',
+    review: 5,
+    image: '../src/assets/images/hakim.png',
+    text: '“Medical order is the valuable business 0 resource we have EVER order has got I am need. This is simply! Medical at order was worth o my company.”',
+  },
+  {
+    name: 'Fliti Nasreddine',
+    review: 2,
+    image: '../src/assets/images/nasro.png',
+    text: '“Medical order is the valuable business 0 resource we have EVER order has got I am need. This is simply! Medical at order was worth o my company.”',
+  },
+  {
+    name: 'Ichou abdelali',
+    review: 3,
+    image: '../src/assets/images/ichou.png',
+    text: '“Medical order is the valuable business 0 resource we have EVER order has got I am need. This is simply! Medical at order was worth o my company.”',
+  },
+  {
+    name: 'Chiheb sakhraoui',
+    review: 1,
+    image: '../src/assets/images/sakh.png',
+    text: '“Medical order is the valuable business 0 resource we have EVER order has got I am need. This is simply! Medical at order was worth o my company.”',
+  },
+  {
+    name: 'Zahdour moustafa',
+    review: 4,
+    image: '../src/assets/images/mustafa.png',
+    text: '“Medical order is the valuable business 0 resource we have EVER order has got I am need. This is simply! Medical at order was worth o my company.”',
+  }
+];

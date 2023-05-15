@@ -2,7 +2,11 @@
 const colors = require('tailwindcss/colors');
 
 module.exports = {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  content: [
+    './index.html',
+    './src/**/*.{js,ts,jsx,tsx}',
+    'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}',
+  ],
   theme: {
     colors: {
       ...colors,
@@ -44,11 +48,11 @@ module.exports = {
         'card-gray': '#F3F5FA',
         'text-gray2': '#6C7B97',
         'gray-blue': '#E4E8F3',
-        'pink1': '#F35C9D',
+        pink1: '#F35C9D',
         'bg-green-light': '#F0FBF7',
-        'red-alert': '#FF0700'
+        'red-alert': '#FF0700',
       },
     },
-    plugins: [require('daisyui')],
+    plugins: [require('flowbite/plugin')],
   },
 };

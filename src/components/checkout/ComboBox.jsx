@@ -8,8 +8,15 @@ export default function ComboBox({ wilayas }) {
       disablePortal
       id="combo-box-demo"
       options={wilayas}
-      sx={{ width: 250 }}
-      renderInput={(params) => <TextField {...params} label="State" />}
+      sx={{ width: 200 }}
+      renderInput={(params) => (
+        <TextField
+          {...params}
+          defaultValue="16 - Alger"
+          variant="outlined"
+          label="State"
+        />
+      )}
     />
   );
 }

@@ -187,6 +187,39 @@ export const cartItems = [
   },
 ];
 
+export const wishlistItems = [
+  {
+    name: 'Whey',
+    image: '../../public/../src/assets/png/bcaa.png',
+    price: '899',
+    inStock: true,
+  },
+  {
+    name: 'Whey',
+    image: './whey.png',
+    price: '899',
+    inStock: true,
+  },
+  {
+    name: 'Whey',
+    image: '../../public/../src/assets/png/bcaa.png',
+    price: '899',
+    inStock: false,
+  },
+  {
+    name: 'Whey',
+    image: './whey.png',
+    price: '899',
+    inStock: true,
+  },
+  {
+    name: 'Whey',
+    image: './whey.png',
+    price: '899',
+    inStock: false,
+  },
+];
+
 export const wilayas = [
   {
     id: '1',
@@ -510,5 +543,5 @@ export const reviews = [
     review: 4,
     image: '../src/assets/images/mustafa.png',
     text: '“Medical order is the valuable business 0 resource we have EVER order has got I am need. This is simply! Medical at order was worth o my company.”',
-  }
+  },
 ];

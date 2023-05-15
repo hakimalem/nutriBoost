@@ -8,6 +8,8 @@ import ProductsPage from './pages/ProductsPage';
 import { NotFound } from './pages/NotFound';
 import { Cart } from './pages/Cart';
 import { Checkout } from './pages/Checkout';
+import { Settings } from './pages/Settings';
+import { Wishlist } from './pages/Wishlist';
 
 function App() {
   return (
@@ -19,7 +21,9 @@ function App() {
           <Route path="products/:id" element={<SingleProduct />} />
           <Route path="cart" element={<Cart />} />
           <Route path="checkout" element={<Checkout />} />
+          <Route path="settings" element={<Settings />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="wishlist" element={<Wishlist />} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />

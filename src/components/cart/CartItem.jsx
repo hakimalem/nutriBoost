@@ -36,7 +36,7 @@ export const CartItem = ({ item }) => {
       <div className="col-span-1 text-primary">${quantity * price}</div>
       <div className="col-span-1">
         <button
-          className="text-red-600 bg-red-100 hover:bg-red-400 hover:text-red-700 px-3 py-2 text-xl duration-300 rounded-md "
+          className="text-red-600  hover:bg-red-200 hover:text-red-700  p-2 text-xl duration-300 rounded-md "
           //   onClick={() => {
           //     dispatch(removeFromCart(item));
           //   }}

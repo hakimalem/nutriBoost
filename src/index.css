@@ -8,71 +8,36 @@ body {
 }
 
 @font-face {
-  font-family: "PoppinsRegular";
-  src: url("../fonts/PoppinsRegular.ttf")
+  font-family: 'PoppinsRegular';
+  src: url('../fonts/PoppinsRegular.ttf');
 }
 
 @font-face {
-  font-family: "PoppinsMedium";
-  src: url("../fonts/PoppinsMedium.ttf")
+  font-family: 'PoppinsMedium';
+  src: url('../fonts/PoppinsMedium.ttf');
 }
 
 @font-face {
-  font-family: "PoppinsBold";
-  src: url("../fonts/PoppinsBold.ttf")
+  font-family: 'PoppinsBold';
+  src: url('../fonts/PoppinsBold.ttf');
 }
 
 @font-face {
-  font-family: "PoppinsExtraBold";
-  src: url("../fonts/PoppinsExtraBold.ttf")
+  font-family: 'PoppinsExtraBold';
+  src: url('../fonts/PoppinsExtraBold.ttf');
 }
 
 @font-face {
-  font-family: "PoppinsLight";
-  src: url("../fonts/PoppinsLight.ttf")
+  font-family: 'PoppinsLight';
+  src: url('../fonts/PoppinsLight.ttf');
 }
 
 @font-face {
-  font-family: "PoppinsThin";
-  src: url("../fonts/PoppinsThin.ttf")
+  font-family: 'PoppinsThin';
+  src: url('../fonts/PoppinsThin.ttf');
 }
 
 @font-face {
-  font-family: "PoppinsBlack";
-  src: url("..fonts/PoppinsBlack.ttf")
+  font-family: 'PoppinsBlack';
+  src: url('..fonts/PoppinsBlack.ttf');
 }
-
-
-
-
-
-
-
-
-/* .custom-next,.custom-prev {
-  padding: 10px;
-} */
-
-/* .swiper-button-next,
-.swiper-button-prev {
-  cursor: pointer;
-  background-color: #dffdfb;
-  color: #00c793;
-  border-radius: 5px;
-}
-.swiper-button-next::after,
-.swiper-button-prev::after {
-  content: none;
-}
-
-.swiper-button-next {
-  right: -75px;
-}
-
-.buttons-container {
-  position: absolute;
-  top: 40px;
-  right: 110px;
-  display: flex;
-  gap: 80px;
-} */

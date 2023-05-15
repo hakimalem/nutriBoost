@@ -4,31 +4,9 @@ import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import StepContent from '@mui/material/StepContent';
-import Button from '@mui/material/Button';
-import Paper from '@mui/material/Paper';
-import Typography from '@mui/material/Typography';
 import ComboBox from './ComboBox';
 import { wilayas } from '../../data/data';
-const steps = [
-  {
-    label: 'Select campaign settings',
-    description: `For each ad campaign that you create, you can control how much
-              you're willing to spend on clicks and conversions, which networks
-              and geographical locations you want your ads to show on, and more.`,
-  },
-  {
-    label: 'Create an ad group',
-    description:
-      'An ad group contains one or more ads which target a shared set of keywords.',
-  },
-  {
-    label: 'Create an ad',
-    description: `Try out different ad text to see what brings in the most customers,
-              and learn how to enhance your ads using features like ad extensions.
-              If you run into any problems with your ads, find out how to tell if
-              they're running and how to resolve approval issues.`,
-  },
-];
+import { Payment } from './Payment';
 
 function CustomStepIcon(props) {
   const { active, completed } = props;
@@ -61,7 +39,7 @@ export const CustomStepper = () => {
   };
 
   const handleReset = () => {
-    setActiveStep(0);
+    setActiveStep(1);
   };
 
   return (
@@ -72,8 +50,8 @@ export const CustomStepper = () => {
           <StepContent>
             <div className="border flex justify-between px-4 py-6 items-center w-[150%]">
               <div className="flex items-center gap-5 ">
-                <img className="w-16" src="./ichouProfile.png" alt="" />
-                <p>ichou@esi-sba.dz</p>
+                <img className="w-16" src="./hakimProfile.png" alt="" />
+                <p>hakim@esi-sba.dz</p>
               </div>
               <button className="h-full bg-primary hover:bg-green-400 active:bg-green-500 text-white font-poppinsBold py-2 px-4 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
                 Sign out
@@ -84,34 +62,84 @@ export const CustomStepper = () => {
         <Step>
           <StepLabel StepIconComponent={CustomStepIcon}>Shipping</StepLabel>
           <StepContent>
-            <div>
+            <div className="w-[150%] flex flex-col gap-3">
               <div>
-                <div>
-                  <div>
-                    <label htmlFor="street">Street address</label>
-                    <input id="street" name="street" type="text" className="" />
-                  </div>
+                <div className="flex flex-col gap-1">
+                  <label className="text-xs text-text-gray" htmlFor="street">
+                    Street address
+                  </label>
+                  <input
+                    className="focus:outline-none border-text-gray border p-3 rounded-sm w-full"
+                    id="street"
+                    name="street"
+                    type="text"
+                  />
                 </div>
-                <ComboBox wilayas={wilayas} />
+                <label className="text-xs text-text-gray" htmlFor="city">
+                  City
+                </label>
+                <div className="flex items-center gap-3">
+                  <div>
+                    <input
+                      className="focus:outline-none border-text-gray border px-3 py-[15px] rounded-sm w-full"
+                      id="city"
+                      name="city"
+                      type="text"
+                    />
+                  </div>
+                  <ComboBox wilayas={wilayas} />
+                </div>
               </div>
               <button
                 onClick={handleNext}
-                className="h-full bg-primary hover:bg-green-400 active:bg-green-500 text-white font-poppinsBold py-2 px-4 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                className="h-full  bg-primary hover:bg-green-400 active:bg-green-500 text-white font-poppinsBold py-2 px-4 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
               >
                 Next
               </button>
             </div>
           </StepContent>
         </Step>
+        <Step>
+          <StepLabel StepIconComponent={CustomStepIcon}>Payment</StepLabel>
+          <StepContent>
+            <div className="w-[150%]">
+              <Payment />
+              <div className="flex justify-between mt-8">
+                <button
+                  className="flex items-center gap-3 hover:scale-110 hover:underline duration-200"
+                  onClick={handleBack}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-arrow-left"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
+                    />
+                  </svg>
+                  <span>Back</span>
+                </button>
+                <button className="h-full  bg-primary hover:bg-green-400 active:bg-green-500 text-white font-poppinsBold py-2 px-4 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
+                  Confirm & Pay
+                </button>
+              </div>
+            </div>
+          </StepContent>
+        </Step>
       </Stepper>
-      {activeStep === steps.length && (
+      {/* {activeStep === 2 && (
         <Paper square elevation={0} sx={{ p: 3 }}>
           <Typography>All steps completed - you&apos;re finished</Typography>
           <Button onClick={handleReset} sx={{ mt: 1, mr: 1 }}>
             Reset
           </Button>
         </Paper>
-      )}
+      )} */}
     </Box>
   );
 };

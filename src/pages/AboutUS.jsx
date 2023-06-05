@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import profilePicture from "../assets/images/ichou.png";
 import whatsapp from "../assets/images/whatsapp.png";
 import insta from "../assets/images/insta.png";
 import email from "../assets/images/email.png";
 
 const Card = ({ title, disc, link, image }) => {
   const handleButtonClick = () => {
-    window.open({ link });
+    window.location.href = { link };
   };
 
   return (
@@ -41,7 +40,7 @@ export const ContactUS = () => {
     <>
       <div className="mx-auto flex- min-h-screen items-center px-32">
         <div className="flex-colomn justify-center mb-15">
-          <h1 className="text-4xl text-center font-bold mt-20 mb-8">
+          <h1 className="text-4xl text-center font-bold mt-16 mb-8">
             Contact us
           </h1>
           <p className="text-gray-600 text-xl text-center mb-10">

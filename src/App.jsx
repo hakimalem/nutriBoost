@@ -53,7 +53,7 @@ function App() {
             <Route path="products/:id" element={<SingleProduct />} />
             <Route path="cart" element={<Cart />} />
             <Route path="*" element={<NotFound />} />
-            <Route path="about" element={<ContactUS />} />
+            <Route path="contact" element={<ContactUS />} />
             <Route element={<RequireAuth />}>
               <Route path="checkout" element={<Checkout />} />
               <Route path="settings" element={<Settings />} />

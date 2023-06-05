@@ -8,7 +8,7 @@ export const CategoryCard = ({ category }) => {
       className={`bg-[#FFF2D8] mx-auto w-72 h-44 px-5 py-4 mb-10 rounded-lg  flex flex-col justify-between`}
     >
       <div className="flex justify-between">
-        <h2 className="text-xl w-7 h-3">{name}</h2>
+        <h2 className="text-xl w-7 h-3">{name}sssss</h2>
         <p className="bg-main text-white p-1">{promotion}</p>
       </div>
       <div className="flex justify-between items-end">

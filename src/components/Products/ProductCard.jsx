@@ -50,7 +50,7 @@ const ProductCard = ({ product }) => {
         </div>
         <div className="flex justify-start items-start flex-col w-[80%]">
           <h1 className="body-font font-poppinsMedium text-base text-text-black">
-            {product?.name}
+            {product?.name.slice(0, 24)}...
           </h1>
         </div>
 

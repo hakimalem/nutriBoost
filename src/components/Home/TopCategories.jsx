@@ -34,12 +34,12 @@ export const TopCategories = () => {
             <SwiperSlide>
               <div
                 style={{ '--image-url': `url(${image})` }}
-                className={`rounded-lg bg-[image:var(--image-url)] w-52 h-36 bg-contain bg-no-repeat hover:scale-110 cursor-pointer duration-300`}
+                className={`rounded-md bg-[image:var(--image-url)] w-52 h-36 bg-contain bg-no-repeat hover:scale-110 cursor-pointer duration-300`}
                 onClick={() => {
                   navigate(`/products/category?id=${_id}`);
                 }}
               >
-                <div className="absolute w-52 h-36 bg-black bg-opacity-30 flex items-end pl-2 py-3">
+                <div className="absolute rounded-md w-52 h-36 bg-black bg-opacity-30 flex items-end pl-2 py-3">
                   <p className="text-white font-bold ">{name}</p>
                 </div>
               </div>

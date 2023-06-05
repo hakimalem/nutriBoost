@@ -2,6 +2,7 @@ import logo from '../../assets/logoNavbar.svg';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { useContext, useEffect, useState } from 'react';
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { UserDropdown } from './UserDropdown';
 
 export function Navbar2() {
   const [navbar, setNavbar] = useState(false);
@@ -151,12 +152,15 @@ export function Navbar2() {
               >
                 <li>Contact US</li>
               </NavLink>
-              <Link
+
+              <UserDropdown />
+
+              {/* <Link
                 to="/login"
                 className="px-3 py-2 rounded-md font-semibold hover:text-white hover:bg-primary duration-200 border border-primary text-primary"
               >
                 Log in
-              </Link>
+              </Link> */}
 
               <Link to="/cart">
                 <div className="text-2xl bg-primary bg-opacity-90 p-2 rounded-lg text-white hover:scale-110 duration-150 hover:rotate-12 cursor-pointer">

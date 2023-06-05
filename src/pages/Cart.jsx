@@ -30,6 +30,7 @@ export const Cart = () => {
           },
         });
         setCart(data.cart);
+        console.log(data.cart);
         setTotalPrice(data.totalPrice);
         setIsLoading(false);
       } catch (error) {
@@ -40,8 +41,6 @@ export const Cart = () => {
     };
     fetchData();
   }, []);
-
-  console.log(cart);
 
   return (
     <div className="px-28 py-6 min-h-screen">

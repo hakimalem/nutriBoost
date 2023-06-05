@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
-export const Input = ({ placeholder, id, value, onChange }) => {
+export const Input = forwardRef(function Input(props, ref) {
+  const { label, ...otherProps } = props;
+
   return (
     <input
-      id={id}
-      placeholder={placeholder}
-      value={value}
-      onChange={onChange}
+      {...otherProps}
+      ref={ref}
       className="outline-main border border-grey px-5 py-2 rounded-lg w-full"
     />
   );
-};
+});
 
 export const Element = ({ placeholder, name }) => {
   return (
@@ -20,3 +20,17 @@ export const Element = ({ placeholder, name }) => {
     </div>
   );
 };
+
+/*
+
+{
+  placeholder,
+  id,
+  value,
+  onChange,
+  onBlur,
+  onFocus,
+  type,
+}
+
+*/

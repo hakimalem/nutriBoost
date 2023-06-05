@@ -4,8 +4,15 @@ import ProductPreview from '../components/singleProduct/ProductPreview';
 import ProductProperties from '../components/singleProduct/ProductProperties';
 import { ReviewPreview } from '../components/singleProduct/ReviewPreview';
 import MoreDetails from '../components/singleProduct/MoreDetails';
+import { useParams } from 'react-router-dom';
+import { useFetch } from '../hooks/useFetch';
+
 // import ReviewPreview from '../components/singleProduct/ReviewPreview';
 export const SingleProduct = () => {
+  const params = useParams();
+  const [product = apiData, isLoading, error] = useFetch(
+    `api/products/${params.id}`
+  );
   return (
     <div className="flex flex-col items-center text-text-black font-poppinsRegular">
       {/* HEADER */}
@@ -23,15 +30,15 @@ export const SingleProduct = () => {
 
       {/* PREVIEW PRODUCT */}
 
-      <div className='flex flex-row w-[80%] justify-start py-[1%]'>
-        <ProductPreview />
-        <ProductProperties />
+      <div className="flex flex-row w-[80%] justify-start py-[1%]">
+        <ProductPreview images={product?.image} />
+        <ProductProperties product={product} />
       </div>
       {/* PREVIEW PRODUCT */}
 
-      <div className='flex flex-row w-[80%] justify-start items-start py-[1%]'>
+      <div className="flex flex-row w-[80%] justify-start items-start py-[1%]">
         <ReviewPreview />
-        <MoreDetails />
+        <MoreDetails product={product} />
       </div>
     </div>
   );

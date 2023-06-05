@@ -1,13 +1,21 @@
 import logo from '../../assets/logoNavbar.svg';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
-import { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 
 export function Navbar2() {
   const [navbar, setNavbar] = useState(false);
+  const navigate = useNavigate();
+  const [searchValue, setSearchValue] = useState('');
+  const location = useLocation();
 
+  useEffect(() => {
+    if (location.pathname !== '/products/search') {
+      setSearchValue('');
+    }
+  }, [location]);
   return (
-    <nav className="w-full bg-whte sticky shadow-xl top-0 z-10 bg-transparent backdrop-blur-2xl">
+    <nav className="w-full bg-whte sticky shadow-xl top-0 z-10 bg-transparent backdrop-blur">
       <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
@@ -77,19 +85,31 @@ export function Navbar2() {
                     ></path>
                   </svg>
                 </div>
-                <input
-                  type="search"
-                  id="default-search"
-                  class="block focus:outline-none  w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-primary focus:border-primary "
-                  placeholder="Search ..."
-                  required
-                />
-                <button
-                  type="submit"
-                  class="text-white absolute right-2.5 bottom-2.5 bg-primary bg-opacity-85 hover:bg-opacity-100 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    if (searchValue)
+                      navigate(`/products/search?query=${searchValue}`);
+                  }}
                 >
-                  Search
-                </button>
+                  <input
+                    type="search"
+                    id="default-search"
+                    class="block focus:outline-none  w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-primary focus:border-primary "
+                    placeholder="Search ..."
+                    value={searchValue}
+                    onChange={(e) => {
+                      setSearchValue(e.target.value);
+                    }}
+                    required
+                  />
+                  <button
+                    type="submit"
+                    className="text-white absolute right-2.5 bottom-2.5 bg-primary bg-opacity-85 hover:bg-opacity-100 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  >
+                    Search
+                  </button>
+                </form>
               </div>
               <NavLink
                 className={({ isActive }) =>
@@ -131,6 +151,12 @@ export function Navbar2() {
               >
                 <li>Contact US</li>
               </NavLink>
+              <Link
+                to="/login"
+                className="px-3 py-2 rounded-md font-semibold hover:text-white hover:bg-primary duration-200 border border-primary text-primary"
+              >
+                Log in
+              </Link>
 
               <Link to="/cart">
                 <div className="text-2xl bg-primary bg-opacity-90 p-2 rounded-lg text-white hover:scale-110 duration-150 hover:rotate-12 cursor-pointer">

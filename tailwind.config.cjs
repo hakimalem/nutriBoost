@@ -25,6 +25,7 @@ module.exports = {
       backgroundImage: {
         login: "url('./src/assets/images/bg-login.png')",
         signup: "url('./src/assets/images/signup.png')",
+        berber: "url('./public/berber.png')",
       },
       fontFamily: {
         poppinsRegular: ['PoppinsRegular', 'sans-serif'],

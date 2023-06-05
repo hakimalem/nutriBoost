@@ -13,9 +13,8 @@ export const MainSection = () => {
             For the best prices, in one click and delivered to your doorstep
           </p>
         </div>
-
         <Link to="/products">
-          <button className="bg-white hover:rotate-3 text-3xl font-bold text-main px-6 py-4 rounded translate-x-12 translate-y-5 hover:scale-110 duration-200 hover:shadow-xl">
+          <button className="bg-white hover:rotate-3 text-3xl font-bold text-main px-6 py-4 rounded translate-x- translate-y-5 hover:scale-110 duration-200 hover:shadow-xl">
             Shop Now!
           </button>
         </Link>

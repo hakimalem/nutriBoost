@@ -6,11 +6,12 @@ import { HealthcareProducts } from '../components/Home/HealthcareProducts';
 import { Testimonials } from '../components/Home/Testimonials';
 import { Offers2 } from '../components/Home/Offers2';
 import { TopCategories } from '../components/Home/TopCategories';
+import { Helmet } from 'react-helmet-async';
 
 export const Home = () => {
   return (
     <div className="">
-      <MainSection /> 
+      <MainSection />
       <CategoriesSection />
       <ProteinSuppliments />
       <Offers2 />

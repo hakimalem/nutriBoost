@@ -13,7 +13,10 @@ export const Wishlist = () => {
           </button>
         </div>
         <div className="flex justify-between my-5">
-          <button className="flex items-center gap-1 text-lg hover:scale-105 duration-150">
+          <button
+            onClick={() => window.print()}
+            className="flex items-center gap-1 text-lg hover:scale-105 duration-150"
+          >
             {' '}
             <AiFillPrinter /> Print Page
           </button>

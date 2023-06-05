@@ -11,7 +11,6 @@ import { Payment } from './Payment';
 function CustomStepIcon(props) {
   const { active, completed } = props;
   const color = active || completed ? 'green' : 'gray';
-
   return (
     <div
       className={`flex ${
@@ -50,8 +49,12 @@ export const CustomStepper = () => {
           <StepContent>
             <div className="border flex justify-between px-4 py-6 items-center w-[150%]">
               <div className="flex items-center gap-5 ">
-                <img className="w-16" src="./hakimProfile.png" alt="" />
-                <p>hakim@esi-sba.dz</p>
+                <img
+                  className="w-16 rounded-full"
+                  src="../src/assets/images/mustafa.png"
+                  alt=""
+                />
+                <p>chikour@esi-sba.dz</p>
               </div>
               <button className="h-full bg-primary hover:bg-green-400 active:bg-green-500 text-white font-poppinsBold py-2 px-4 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
                 Sign out

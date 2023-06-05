@@ -8,7 +8,9 @@ export const Settings = () => {
   const [state, setState] = useState('FL');
   const [phone, setPhone] = useState('+1 2142 323 23');
   const [password, setPassword] = useState('2123231213');
-  const [profilePicture, setProfilePicture] = useState('/public/hakimProfile.png');
+  const [profilePicture, setProfilePicture] = useState(
+    '../src/assets/images/mustafa.png'
+  );
   const [disabled, setDisabled] = useState(true);
 
   const handleSubmit = (e) => {

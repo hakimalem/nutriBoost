@@ -11,6 +11,7 @@ import { offers2 } from '../../data/data';
 import { Link } from 'react-router-dom';
 
 export const Offers2 = () => {
+
   return (
     <div className=" lg:px-52 md:px-20 px-10">
       <CustomSwiper

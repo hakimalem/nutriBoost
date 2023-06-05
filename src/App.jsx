@@ -1,21 +1,22 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Login } from './pages/Login';
-import { Signup } from './pages/Signup';
-import { Layout } from './components/common/Layout';
-import { Home } from './pages/Home';
-import { SingleProduct } from './pages/SingleProduct';
-import ProductsPage from './pages/ProductsPage';
-import { NotFound } from './pages/NotFound';
-import { Cart } from './pages/Cart';
-import { Checkout } from './pages/Checkout';
-import { Settings } from './pages/Settings';
-import { Wishlist } from './pages/Wishlist';
-import axios from 'axios';
-import { ToastContainer } from 'react-toastify';
-import RequireAuth from './components/common/RequireAuth';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Login } from "./pages/Login";
+import { Signup } from "./pages/Signup";
+import { ContactUS } from "./pages/AboutUS";
+import { Layout } from "./components/common/Layout";
+import { Home } from "./pages/Home";
+import { SingleProduct } from "./pages/SingleProduct";
+import ProductsPage from "./pages/ProductsPage";
+import { NotFound } from "./pages/NotFound";
+import { Cart } from "./pages/Cart";
+import { Checkout } from "./pages/Checkout";
+import { Settings } from "./pages/Settings";
+import { Wishlist } from "./pages/Wishlist";
+import axios from "axios";
+import { ToastContainer } from "react-toastify";
+import RequireAuth from "./components/common/RequireAuth";
 
 function App() {
-  axios.defaults.baseURL = 'http://192.168.14.7:6106/';
+  axios.defaults.baseURL = "http://192.168.14.7:6106/";
   // axios.defaults.headers.common['Authorization'] =
   //   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDZhYTI5NTM1YjJhMDA0MjFmYTEyNTgiLCJpYXQiOjE2ODQ3MTAzNDUsImV4cCI6MTY5MjQ4NjM0NX0.pd88_1MriegCLeRh0-JB8OXRqYVciPvtscQ5K4rHe-Q';
 
@@ -52,6 +53,7 @@ function App() {
             <Route path="products/:id" element={<SingleProduct />} />
             <Route path="cart" element={<Cart />} />
             <Route path="*" element={<NotFound />} />
+            <Route path="about" element={<ContactUS />} />
             <Route element={<RequireAuth />}>
               <Route path="checkout" element={<Checkout />} />
               <Route path="settings" element={<Settings />} />

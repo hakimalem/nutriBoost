@@ -5,6 +5,7 @@ import { ContactUS } from "./pages/AboutUS";
 import { Layout } from "./components/common/Layout";
 import { Home } from "./pages/Home";
 import { SingleProduct } from "./pages/SingleProduct";
+import { Orders } from "./pages/OrderHistory";
 import ProductsPage from "./pages/ProductsPage";
 import { NotFound } from "./pages/NotFound";
 import { Cart } from "./pages/Cart";
@@ -51,7 +52,7 @@ function App() {
             <Route path="products/brand" element={<ProductsPage />} />
             <Route path="products/:id" element={<SingleProduct />} />
             <Route path="contact" element={<ContactUS />} />
-            <Route path="delivery" element={<DeliveryStatus />} />
+            <Route path="orders" element={<Orders />} />
             <Route path="*" element={<NotFound />} />
             <Route element={<RequireAuth />}>
               <Route path="cart" element={<Cart />} />

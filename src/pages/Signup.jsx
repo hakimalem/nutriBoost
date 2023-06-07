@@ -11,6 +11,8 @@ import { Button, ButtonLight } from '../components/form/auth/Button';
 import { Input } from '../components/form/auth/Input';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
+import ComboBox from '../components/checkout/ComboBox';
+import { wilayas } from '../data/data';
 
 const USER_REGEX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -23,6 +25,9 @@ export const Signup = () => {
   const errRef = useRef();
 
   const [fullName, setFullName] = useState('');
+  const [address, setAddress] = useState('');
+  const [city, setCity] = useState('');
+  const [state, setState] = useState('');
 
   const [user, setUser] = useState('');
   const [validName, setValidName] = useState(false);
@@ -70,7 +75,14 @@ export const Signup = () => {
     try {
       const response = await axios.post(
         '/api/auth/signup',
-        JSON.stringify({ email: user, password: pwd, name: fullName }),
+        JSON.stringify({
+          email: user,
+          password: pwd,
+          name: fullName,
+          city,
+          state,
+          address,
+        }),
         {
           headers: { 'Content-Type': 'application/json' },
           // withCredentials: true,
@@ -79,13 +91,13 @@ export const Signup = () => {
       console.log(response?.data);
       console.log(response?.accessToken);
       console.log(JSON.stringify(response));
-      setSuccess(true);
       //clear state and controlled inputs
       //need value attrib on inputs for this
       setUser('');
       setPwd('');
       setMatchPwd('');
       setFullName('');
+      navigate('/');
     } catch (err) {
       if (!err?.response) {
         setErrMsg('No Server Response');
@@ -107,16 +119,16 @@ export const Signup = () => {
         </div>
       ) : (
         <>
-          <div className="bg-signup w-1/2 h-full">s</div>
-          <div className="w-1/2">
-            <div className="bg-[#fff] py-20 px-28 rounded-[20px] flex flex-col  gap-6   ">
-              <div className="flex flex-col gap-2">
+          <div className="bg-signup w-1/2 h-ful"></div>
+          <div className="w-1/2 h-full">
+            <div className="bg-[#fff] py-10 px-28 rounded-[20px] flex flex-col  gap-3   ">
+              <div className="flex flex-col gap-1">
                 <h2 className="text-[16px] text-[#5A5A5D]">New user ?</h2>
                 <h1 className="text-[32px] font-medium">Create an account</h1>
               </div>
               <form
                 action=""
-                className="flex flex-col gap-3"
+                className="flex flex-col gap-2"
                 onSubmit={handleSubmit}
               >
                 <div className="flex flex-col gap-1">
@@ -168,11 +180,47 @@ export const Signup = () => {
                     </p>
                   )}
                 </div>
-                <div className="flex flex-col gap-1">
-                  <label htmlFor="date" className="text-grey text-sm">
-                    Date of birth
+                <div>
+                  <div className="flex flex-col gap-1">
+                    <label className="text-grey text-sm" htmlFor="street">
+                      Street address
+                    </label>
+                    <Input
+                      value={address}
+                      onChange={(e) => setAddress(e.target.value)}
+                      id="street"
+                      name="street"
+                      type="text"
+                      required
+                    />
+                  </div>
+                  <label className="text-grey text-sm" htmlFor="city">
+                    City
                   </label>
-                  <Input id="date" placeholder="dd/mm/yyyy" />
+                  <div className="flex items-center gap-3">
+                    <div>
+                      <Input
+                        value={city}
+                        onChange={(e) => setCity(e.target.value)}
+                        id="city"
+                        name="city"
+                        type="text"
+                        required
+                      />
+                    </div>
+                    <select
+                      name="state"
+                      id="state"
+                      className="outline-main border bg-white focus:outline-none border-grey px-5 py-2 rounded-lg w-full"
+                      required
+                      value={state}
+                      onChange={(e) => setState(e.target.value)}
+                    >
+                      {wilayas.map((wilaya) => (
+                        <option value={wilaya.label}>{wilaya.label}</option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
                 <div className="flex flex-col gap-1">
                   <label htmlFor="password" className="text-grey text-sm">

@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Login } from "./pages/Login";
 import { Signup } from "./pages/Signup";
 import { ContactUS } from "./pages/AboutUS";
-import { DeliveryStatus } from "./pages/DeliveryStatus";
 import { Layout } from "./components/common/Layout";
 import { Home } from "./pages/Home";
 import { SingleProduct } from "./pages/SingleProduct";
@@ -17,7 +16,7 @@ import { ToastContainer } from "react-toastify";
 import RequireAuth from "./components/common/RequireAuth";
 
 function App() {
-  axios.defaults.baseURL = "http://192.168.14.7:6106/";
+  axios.defaults.baseURL = "http://192.168.62.166:6106/";
   // axios.defaults.headers.common['Authorization'] =
   //   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDZhYTI5NTM1YjJhMDA0MjFmYTEyNTgiLCJpYXQiOjE2ODQ3MTAzNDUsImV4cCI6MTY5MjQ4NjM0NX0.pd88_1MriegCLeRh0-JB8OXRqYVciPvtscQ5K4rHe-Q';
 
@@ -50,13 +49,12 @@ function App() {
             <Route path="products/search" element={<ProductsPage />} />
             <Route path="products/category" element={<ProductsPage />} />
             <Route path="products/brand" element={<ProductsPage />} />
-
             <Route path="products/:id" element={<SingleProduct />} />
-            <Route path="cart" element={<Cart />} />
-            <Route path="*" element={<NotFound />} />
             <Route path="contact" element={<ContactUS />} />
             <Route path="delivery" element={<DeliveryStatus />} />
+            <Route path="*" element={<NotFound />} />
             <Route element={<RequireAuth />}>
+              <Route path="cart" element={<Cart />} />
               <Route path="checkout" element={<Checkout />} />
               <Route path="settings" element={<Settings />} />
               <Route path="wishlist" element={<Wishlist />} />

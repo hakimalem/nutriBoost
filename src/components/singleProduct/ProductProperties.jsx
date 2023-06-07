@@ -10,6 +10,8 @@ import AddToFavorites from './AddToFavorites';
 import ShareButton from './ShareButton';
 
 const ProductProperties = ({ product }) => {
+  const [value, setValue] = useState(1);
+
   return (
     <div className=" w-[50%] h-[70%] border-card-stroke flex flex-col justify-between p-[1%] ml-[1px] items-start">
       {/* FIRST PART */}
@@ -63,7 +65,7 @@ const ProductProperties = ({ product }) => {
         <div className="flex justify-between w-[70%] mb-[4%] text-text-gray">
           <div className="flex flex-col items-start w-[60%]">
             <h1>Quantity</h1>
-            <QuantitySelector />
+            <QuantitySelector value={value} setValue={setValue} />
           </div>
           <div className="flex flex-col items-start w-[50%]">
             <h1>Property</h1>
@@ -73,7 +75,7 @@ const ProductProperties = ({ product }) => {
         </div>
         {/* BUTTONS */}
         <div className="flex items-center w-[35%] justify-between mb-[4%]">
-          <AddToCartButton />
+          <AddToCartButton id={product?._id} quantity={value} />
           <AddToFavorites />
           <ShareButton />
         </div>

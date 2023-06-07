@@ -1,14 +1,45 @@
+import axios from 'axios';
 import React from 'react';
 import { RiDeleteBinLine } from 'react-icons/ri';
+import { useAuth } from '../../hooks/useAuth';
 
-export const WishlistItem = ({ item }) => {
+export const WishlistItem = ({ item, wihlist, setWishlist }) => {
+  console.log(item);
   const { name, id, price, image, inStock } = item;
+  const { auth, setAuth } = useAuth();
 
+  const removeFromWishlist = async () => {
+    await axios
+      .post(
+        '/api/users/removeFromWishList',
+        {
+          product_id: item?.product_id,
+        },
+        {
+          headers: {
+            Authorization: 'Bearer ' + auth?.token, //the token is a variable which holds the token
+            'Content-Type': 'application/json',
+          },
+        }
+      )
+      .then(() => {
+        const updatedList = wishlist.filter(
+          (listItem) => listItem.product_id !== item.product_id
+        );
+        setWishlist(updatedList);
+        toast.error(`${item?.name} deleted successfully`, {
+          position: toast.POSITION.BOTTOM_LEFT,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <div key={id} className="grid grid-cols-13 items-center py-3 border-b-2">
       <div className="col-span-4 flex items-center gap-5">
-        <img className="w-20" src={image} alt="" />
-        <h2 className="text-xl">{name}</h2>
+        <img className="w-20" src={item?.image} alt="" />
+        <h2 className="text-l">{item?.name}</h2>
       </div>
       <div className="col-span-3 flex items-center gap-6  w-fit">
         {inStock ? (
@@ -30,9 +61,9 @@ export const WishlistItem = ({ item }) => {
       <div className="col-span-1">
         <button
           className="text-red-600  hover:bg-red-200 hover:text-red-700  p-2 text-xl duration-300 rounded-md "
-          //   onClick={() => {
-          //     dispatch(removeFromCart(item));
-          //   }}
+          onClick={() => {
+            removeFromWishlist();
+          }}
         >
           <RiDeleteBinLine />
         </button>

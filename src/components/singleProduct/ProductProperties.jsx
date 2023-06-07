@@ -1,5 +1,5 @@
 import { Rating } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import sale from '../../assets/sale.svg';
 import xMark from '../../assets/xMark.svg';
 import checkMark from '../../assets/checkMark.svg';
@@ -31,13 +31,17 @@ const ProductProperties = ({ product }) => {
         </div>
       </div>
       {/* IS AVAILABLE */}
-      {product?.quantity == 0 && (
+      {product?.quantity == 0 ? (
         <div className="flex w-[40%] mb-[1%]">
           <img className="w-[5%] mr-[3%]" src={xMark} alt="s" />
           <h1 className=" text-red-alert text-lg font-poppinsLight">
             Not available in stock
           </h1>
         </div>
+      ) : (
+        <p className="bg-primary border-none text-white px-3 py-1 rounded-md">
+          Quantity : {product?.quantity}
+        </p>
       )}
       {/* PRODUCT ID */}
       <h1 className="text-text-gray text-lg mb-[5%]">
@@ -74,8 +78,8 @@ const ProductProperties = ({ product }) => {
           </div>
         </div>
         {/* BUTTONS */}
-        <div className="flex items-center w-[35%] justify-between mb-[4%]">
-          <AddToCartButton id={product?._id} quantity={value} />
+        <div className="flex items-center gap-3 mb-[4%]">
+          <AddToCartButton product={product} quantity={value} />
           <AddToFavorites />
           <ShareButton />
         </div>

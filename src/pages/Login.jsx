@@ -46,6 +46,7 @@ export const Login = () => {
       // console.log(JSON.stringify(response?.data));
       const token = response?.data?.token;
       const user = response?.data?.data;
+      console.log(user);
       // console.log(response?.data.data);
       console.log({ token, user });
       // console.log({ user });

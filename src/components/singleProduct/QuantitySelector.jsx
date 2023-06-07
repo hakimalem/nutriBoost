@@ -10,12 +10,12 @@ export const QuantitySelector = ({ value, setValue }) => {
     if (value > 1) setValue(value - 1);
   };
 
-  const handleInputChange = (event) => {
-    const newValue = parseInt(event.target.value, 10);
-    if (newValue >= 0 && newValue <= 10 && !isNaN(newValue)) {
-      setValue(parseInt(newValue));
-    }
-  };
+  //   const handleInputChange = (event) => {
+  //     const newValue = parseInt(event.target.value, 10);
+  //     if (newValue >= 0 && newValue <= 10 && !isNaN(newValue)) {
+  //       setValue(parseInt(newValue));
+  //     }
+  //   };
 
   return (
     <div className="flex items-center w-[60%] h-[100%] ">
@@ -28,7 +28,7 @@ export const QuantitySelector = ({ value, setValue }) => {
       </button>
       <input
         value={value}
-        onChange={handleInputChange}
+        onChange={(e) => setValue(e.target.value)}
         className="rounded-l-none rounded-r-none w-[33%] h-[100%] text-center border border-gray-blue rounded-sm text-text-gray2 focus:outline-none "
         min={1}
         max={10}

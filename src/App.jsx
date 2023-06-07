@@ -50,6 +50,8 @@ function App() {
             <Route path="products/search" element={<ProductsPage />} />
             <Route path="products/category" element={<ProductsPage />} />
             <Route path="products/brand" element={<ProductsPage />} />
+            <Route path="products/priceFilter" element={<ProductsPage />} />
+
             <Route path="products/:id" element={<SingleProduct />} />
             <Route path="contact" element={<ContactUS />} />
             <Route path="orders" element={<Orders />} />

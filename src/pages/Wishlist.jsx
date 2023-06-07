@@ -4,6 +4,7 @@ import { WishlistItem } from '../components/wishlist/wishlistItem';
 import { AiFillPrinter, AiOutlineDelete } from 'react-icons/ai';
 import { useAuth } from '../hooks/useAuth';
 import axios from 'axios';
+import { Loading } from '../components/common/Loading';
 export const Wishlist = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [wishlist, setWishlist] = useState(null);
@@ -22,7 +23,6 @@ export const Wishlist = () => {
           },
         });
         setWishlist(data?.wishList);
-        console.log(wishlist);
         setIsLoading(false);
       } catch (error) {
         setError(error);
@@ -61,14 +61,18 @@ export const Wishlist = () => {
           <h3 className="col-span-1"></h3>
         </div>
         <div>
-          {wishlist &&
+          {isLoading ? (
+            <Loading />
+          ) : (
+            wishlist &&
             wishlist?.map((item) => (
               <WishlistItem
-                wihlist={wishlist}
+                wishlist={wishlist}
                 setWishlist={setWishlist}
                 item={item.product}
               />
-            ))}
+            ))
+          )}
         </div>
       </div>
     </div>

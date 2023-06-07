@@ -1,14 +1,17 @@
 import logo from '../../assets/logoNavbar.svg';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
-import { UserDropdown } from './UserDropdown';
+import { useAuth } from '../../hooks/useAuth';
+import UserMenu from './UserDropdown';
+// import UserDropdown from './UserDropdown';
 
 export function Navbar2() {
   const [navbar, setNavbar] = useState(false);
   const navigate = useNavigate();
   const [searchValue, setSearchValue] = useState('');
   const location = useLocation();
+  const { auth, setAuth } = useAuth();
 
   useEffect(() => {
     if (location.pathname !== '/products/search') {
@@ -153,14 +156,20 @@ export function Navbar2() {
                 <li>Contact US</li>
               </NavLink>
 
-              <UserDropdown />
+              {/* <UserDropdown /> */}
 
-              {/* <Link
-                to="/login"
-                className="px-3 py-2 rounded-md font-semibold hover:text-white hover:bg-primary duration-200 border border-primary text-primary"
-              >
-                Log in
-              </Link> */}
+              {auth?.token ? (
+                <div>
+                  <UserMenu name={auth?.user?.name} />
+                </div>
+              ) : (
+                <Link
+                  to="/login"
+                  className="px-3 py-2 rounded-md font-semibold hover:text-white hover:bg-primary duration-200 border border-primary text-primary"
+                >
+                  Log in
+                </Link>
+              )}
 
               <Link to="/cart">
                 <div className="text-2xl bg-primary bg-opacity-90 p-2 rounded-lg text-white hover:scale-110 duration-150 hover:rotate-12 cursor-pointer">

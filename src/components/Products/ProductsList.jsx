@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Loading } from '../common/Loading';
 import { useFetch } from '../../hooks/useFetch';
 import { useLocation } from 'react-router-dom';
+import { SkeletonLoading } from '../common/SkeletonLoading';
 
 const ProductsList = () => {
   const location = useLocation();
@@ -30,7 +31,12 @@ const ProductsList = () => {
   return (
     <div className="grid md:grid-cols-4 lg:grid-cols-4 sm:grid-cols-2 w-[105%] justify-items-center px-[1%] border-card-stroke">
       {isLoading || error ? (
-        <Loading />
+        <>
+          <SkeletonLoading />
+          <SkeletonLoading />
+          <SkeletonLoading />
+          <SkeletonLoading />
+        </>
       ) : (
         products?.map((product) => {
           return <ProductCard product={product} />;

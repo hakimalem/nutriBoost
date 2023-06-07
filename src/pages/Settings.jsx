@@ -1,21 +1,75 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useAuth } from '../hooks/useAuth';
+import axios from 'axios';
+import { wilayas } from '../data/data';
+import { useFetch } from '../hooks/useFetch';
 
 export const Settings = () => {
-  const [name, setName] = useState('guinguello troisello');
-  const [email, setEmail] = useState('guing@gmail.ca');
-  const [address, setAddress] = useState('street 29');
-  const [city, setCity] = useState('miami');
-  const [state, setState] = useState('FL');
-  const [phone, setPhone] = useState('+1 2142 323 23');
+  const { auth, setAuth } = useAuth();
+
+  const [error, setError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [name, setName] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [address, setAddress] = useState(null);
+  const [city, setCity] = useState(null);
+  const [state, setState] = useState(null);
   const [password, setPassword] = useState('2123231213');
-  const [profilePicture, setProfilePicture] = useState(
-    '../src/assets/images/mustafa.png'
-  );
+  const [profilePicture, setProfilePicture] = useState(null);
   const [disabled, setDisabled] = useState(true);
 
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setIsLoading(true);
+        const { data } = await axios('/api/users/getMe', {
+          headers: {
+            Authorization: 'Bearer ' + auth?.token, //the token is a variable which holds the token
+            'Content-Type': 'application/json',
+          },
+        });
+
+        setName(data?.data?.name);
+        setAddress(data?.data?.address);
+        setCity(data?.data?.city);
+        setEmail(data?.data?.email);
+        setProfilePicture(data?.profileImg);
+        setIsLoading(false);
+      } catch (error) {
+        setError(error);
+        setIsLoading(false);
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: Add logic to update user data
+    try {
+      const response = await axios.post(
+        '/api/users/updateMe',
+        {
+          name,
+          address,
+          city,
+          state,
+          email,
+          profileImg: profilePicture,
+        },
+        {
+          headers: {
+            Authorization: 'Bearer ' + auth?.token, //the token is a variable which holds the token
+            'Content-Type': 'application/json',
+          },
+          // withCredentials: true,
+        }
+      );
+
+      console.log(response?.data);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -29,7 +83,6 @@ export const Settings = () => {
           />
         </label>
         <input
-          disabled={disabled}
           type="file"
           id="profilePicture"
           className="sr-only"
@@ -126,41 +179,13 @@ export const Settings = () => {
                 onChange={(e) => setState(e.target.value)}
                 disabled={disabled}
               >
-                <option value="">Select your state</option>
-                <option value="AL">Alabama</option>
-                <option value="AK">Alaska</option>
-                <option value="AZ">Arizona</option>
-                <option value="AR">Arkansas</option>
-                <option value="CA">California</option>
-                <option value="CO">Colorado</option>
-                <option value="CT">Connecticut</option>
-                <option value="DE">Delaware</option>
-                <option value="DC">District Of Columbia</option>
-                <option value="FL">Florida</option>
-                <option value="GA">Georgia</option>
-                <option value="HI">Hawaii</option>
-                <option value="ID">Idaho</option>
-                <option value="IL">Illinois</option>
+                {wilayas.map((wilaya) => (
+                  <option value={wilaya.label}>{wilaya.label}</option>
+                ))}
               </select>
             </div>
           </div>
           <div className="flex items-center justify-between">
-            <div className="w-full md:w-1/2 px-2 mb-6 md:mb-0">
-              <label className=" text-sm text-text-gray" htmlFor="phone">
-                Phone Number
-              </label>
-              <input
-                disabled={disabled}
-                className={`${
-                  disabled ? 'bg-card-gray text-text-gray' : ''
-                } focus:outline-none border-text-gray border p-3 rounded-sm w-full`}
-                id="phone"
-                type="text"
-                placeholder="Enter your contact number"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-              />
-            </div>
             <div className="w-full md:w-1/2 px-2 mb-6 md:mb-0">
               <label className="text-sm text-text-gray" htmlFor="password">
                 Password
@@ -181,7 +206,7 @@ export const Settings = () => {
           <div className="flex items-center justify-between mt-6">
             <button
               className="h-full  bg-primary hover:bg-green-400 active:bg-green-500 text-white font-poppinsBold py-2 px-4 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-              type="button"
+              type="submit"
               onClick={handleSubmit}
             >
               Save Changes

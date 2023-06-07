@@ -6,10 +6,9 @@ import heartLike from '../../assets/heartLike.svg';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { useAuth } from '../../hooks/useAuth';
 const ProductCard = ({ product }) => {
-  const token =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDZhYTI5NTM1YjJhMDA0MjFmYTEyNTgiLCJpYXQiOjE2ODQ3MTAzNDUsImV4cCI6MTY5MjQ4NjM0NX0.pd88_1MriegCLeRh0-JB8OXRqYVciPvtscQ5K4rHe-Q';
-
+  const { auth, setAuth } = useAuth();
   const navigate = useNavigate();
   const addToCart = () => {
     axios.post(
@@ -20,12 +19,29 @@ const ProductCard = ({ product }) => {
       },
       {
         headers: {
-          Authorization: 'Bearer ' + token, //the token is a variable which holds the token
+          Authorization: 'Bearer ' + auth?.token, //the token is a variable which holds the token
           'Content-Type': 'application/json',
         },
       }
     );
     toast.success(`${product?.name} added to cart successfully`, {
+      position: toast.POSITION.BOTTOM_LEFT,
+    });
+  };
+  const addToWishlist = () => {
+    axios.post(
+      '/api/users/addToWishList',
+      {
+        product_id: product._id,
+      },
+      {
+        headers: {
+          Authorization: 'Bearer ' + auth?.token, //the token is a variable which holds the token
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+    toast.success(`${product?.name} added to wishlist successfully`, {
       position: toast.POSITION.BOTTOM_LEFT,
     });
   };
@@ -42,6 +58,7 @@ const ProductCard = ({ product }) => {
           <button
             onClick={(event) => {
               event.stopPropagation();
+              addToWishlist();
             }}
             className="absolute top-0 right-0 bg-white p-3 m-1 rounded-full hover:shadow-lg transition duration-200 ease-in-out transform hover:-translate-y-[1%] hover:scale-10 active:bg-red-300"
           >

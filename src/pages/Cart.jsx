@@ -10,14 +10,15 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Loading } from '../components/common/Loading';
+import { useAuth } from '../hooks/useAuth';
 
 export const Cart = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [cart, setCart] = useState(null);
   const [totalPrice, setTotalPrice] = useState(null);
   const [error, setError] = useState(null);
-  const token =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDdhMzNkN2MyZjRlN2Y5NzBhYWJkNzkiLCJpYXQiOjE2ODU4OTc3MTAsImV4cCI6MTY5MzY3MzcxMH0.2Tzkw3cEQzyvEI4S6Tpwf4sf1AY28OUJUZo0ABQTETY';
+
+  const { auth, setAuth } = useAuth();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,7 +26,7 @@ export const Cart = () => {
         setIsLoading(true);
         const { data } = await axios('/api/users/cart/displayCart', {
           headers: {
-            Authorization: 'Bearer ' + token, //the token is a variable which holds the token
+            Authorization: 'Bearer ' + auth?.token, //the token is a variable which holds the token
             'Content-Type': 'application/json',
           },
         });

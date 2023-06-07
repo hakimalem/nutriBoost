@@ -4,9 +4,7 @@ import { cartItems } from '../../data/data';
 import { CartItem } from '../cart/CartItem';
 import { OrderSumItem } from './OrderSumItem';
 
-export const OrderSummary = () => {
-  let total = 0;
-  cartItems.map((item) => (total += item.quantity || 1 * item.price));
+export const OrderSummary = ({ cart }) => {
   const tax = 0;
   const shipping = 5.99;
   return (
@@ -17,12 +15,12 @@ export const OrderSummary = () => {
           Edit cart
         </Link>
       </div>
-      {cartItems && cartItems.map((item) => <OrderSumItem item={item} />)}
+      {cart && cart.map((item) => <OrderSumItem item={item} />)}
       <div className="flex flex-col gap-3 mt-4 text-text-gray2">
         <div className="flex flex-col gap-2">
           <div className="flex justify-between">
             <p>Subtotal</p>
-            <p>{total}</p>
+            <p></p>
           </div>
           <div className="flex justify-between">
             <p>Tax</p>
@@ -47,7 +45,7 @@ export const OrderSummary = () => {
             </button>
           </div>
           <div className="bg-green2 py-3 px-10 font-bold mt-4">
-            Total Amount: <span className="text-primary">${total}</span>
+            Total Amount: <span className="text-primary">${}</span>
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Login } from "./pages/Login";
 import { Signup } from "./pages/Signup";
 import { ContactUS } from "./pages/AboutUS";
+import { DeliveryStatus } from "./pages/DeliveryStatus";
 import { Layout } from "./components/common/Layout";
 import { Home } from "./pages/Home";
 import { SingleProduct } from "./pages/SingleProduct";
@@ -54,6 +55,7 @@ function App() {
             <Route path="cart" element={<Cart />} />
             <Route path="*" element={<NotFound />} />
             <Route path="contact" element={<ContactUS />} />
+            <Route path="delivery" element={<DeliveryStatus />} />
             <Route element={<RequireAuth />}>
               <Route path="checkout" element={<Checkout />} />
               <Route path="settings" element={<Settings />} />

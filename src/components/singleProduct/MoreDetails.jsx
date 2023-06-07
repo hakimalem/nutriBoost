@@ -145,33 +145,35 @@ const MoreDetails = ({ product }) => {
 
       {/* REVIEWS */}
       {rActive ? (
-        <div className=" text-text-gray2 mt-[3%] mb-[5%] flex flex-col items-center">
-          {product?.reviews.slice(1,6).map(({ name, review, rating, image }, index) => (
-            <div className="flex flex-col gap-3">
-              <div className="flex flex-row gap-8">
-                <img src={image} alt="s" />
-                <div className="flex flex-col gap-1">
-                  <h1 className="text-text-black">{name}</h1>
-                  <div className="flex flex-row gap-3 items-center">
-                    <Rating
-                      name="half-rating"
-                      value={+rating}
-                      precision={0.2}
-                      size="small"
-                      readOnly
-                      className=""
-                    />
-                    <h1 className=" text-text-gray font-thin">
-                      {rating} Rating
-                    </h1>
+        <div className=" text-text-gray2  w-80 mt-[3%] mb-[5%] flex flex-col items-center">
+          {product?.reviews
+            .slice(1, 6)
+            .map(({ name, review, rating, image }, index) => (
+              <div className="flex flex-col gap-3">
+                <div className="flex flex-row gap-8">
+                  <img src={image} alt="s" />
+                  <div className="flex flex-col gap-1">
+                    <h1 className="text-text-black">{name}</h1>
+                    <div className="flex flex-row gap-3 items-center">
+                      <Rating
+                        name="half-rating"
+                        value={+rating}
+                        precision={0.2}
+                        size="small"
+                        readOnly
+                        className=""
+                      />
+                      <h1 className=" text-text-gray font-thin">
+                        {rating} Rating
+                      </h1>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div className=" text-text-gray font-thin">{review}</div>
-              <hr class="w-[100%] h-[100%] mx-auto border-3 rounded my-[2%]"></hr>
-            </div>
-          ))}
+                <div className=" text-text-gray font-thin">{review}</div>
+                <hr class="w-[100 h-[100%] mx-auto border-3 rounded my-[2%]"></hr>
+              </div>
+            ))}
         </div>
       ) : (
         <div></div>

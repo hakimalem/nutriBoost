@@ -2,18 +2,43 @@ import axios from 'axios';
 import React from 'react';
 import { RiDeleteBinLine } from 'react-icons/ri';
 import { useAuth } from '../../hooks/useAuth';
+import { toast } from 'react-toastify';
 
-export const WishlistItem = ({ item, wihlist, setWishlist }) => {
-  console.log(item);
+export const WishlistItem = ({ item, wishlist, setWishlist }) => {
   const { name, id, price, image, inStock } = item;
   const { auth, setAuth } = useAuth();
+
+  console.log({ wishlist });
+  const remove = () => {
+    let updated = wishlist?.filter((w) => w.product._id !== item._id);
+    setWishlist(updated);
+  };
+
+  const addToCart = () => {
+    axios.post(
+      '/api/users/cart/update',
+      {
+        product_id: item._id,
+        quantity: 1,
+      },
+      {
+        headers: {
+          Authorization: 'Bearer ' + auth?.token, //the token is a variable which holds the token
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+    toast.success(`${item?.name} added to cart successfully`, {
+      position: toast.POSITION.BOTTOM_LEFT,
+    });
+  };
 
   const removeFromWishlist = async () => {
     await axios
       .post(
         '/api/users/removeFromWishList',
         {
-          product_id: item?.product_id,
+          product_id: item?._id,
         },
         {
           headers: {
@@ -23,10 +48,7 @@ export const WishlistItem = ({ item, wihlist, setWishlist }) => {
         }
       )
       .then(() => {
-        const updatedList = wishlist.filter(
-          (listItem) => listItem.product_id !== item.product_id
-        );
-        setWishlist(updatedList);
+        remove();
         toast.error(`${item?.name} deleted successfully`, {
           position: toast.POSITION.BOTTOM_LEFT,
         });
@@ -54,7 +76,10 @@ export const WishlistItem = ({ item, wihlist, setWishlist }) => {
       </div>
       <div className="col-span-2 text-primary">${price}</div>
       <div className="col-span-3">
-        <button className="px-5 py-2 bg-primary text-white font-bold border-2 border-primary duration-200 hover:bg-white rounded-xl hover:text-primary">
+        <button
+          onClick={addToCart}
+          className="px-5 py-2 bg-primary text-white font-bold border-2 border-primary duration-200 hover:bg-white rounded-xl hover:text-primary"
+        >
           Add to cart
         </button>
       </div>

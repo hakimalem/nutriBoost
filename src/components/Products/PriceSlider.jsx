@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 import InputRange from 'react-input-range';
 import 'react-input-range/lib/css/index.css';
+import { useNavigate } from 'react-router-dom';
 
 function PriceSlider() {
-  const [values, setValues] = useState({ min: 4000, max: 30000 });
-  const [minValue, setMinValue] = useState(4000);
-  const [maxValue, setMaxValue] = useState(30000);
+  const [values, setValues] = useState({ min: 50, max: 900 });
+  const [minValue, setMinValue] = useState(50);
+  const [maxValue, setMaxValue] = useState(900);
+  const navigate = useNavigate();
 
   const handleOnChange = (values) => {
     setValues(values);
     setMinValue(values.min);
     setMaxValue(values.max);
+    navigate(`/products/priceFilter?min=${minValue}&max=${maxValue}`);
   };
 
   const handleMinInputChange = (event) => {
@@ -29,7 +32,7 @@ function PriceSlider() {
     <div className="mb-[10%]">
       <div className="flex justify-between mb-[8%] ">
         <div className="flex flex-col ml-[10%] justify-start w-[50%] ">
-          <h1 className="text-text-gray">Max</h1>
+          <h1 className="text-text-gray">Min</h1>
           <input
             type="number"
             value={minValue}
@@ -38,7 +41,7 @@ function PriceSlider() {
           />
         </div>
         <div className="flex flex-col mr-[10%] justify-start w-[50%]">
-          <h1 className="text-text-gray">Min</h1>
+          <h1 className="text-text-gray">Max</h1>
           <input
             type="number"
             value={maxValue}
@@ -49,7 +52,7 @@ function PriceSlider() {
       </div>
       <InputRange
         minValue={0}
-        maxValue={50000}
+        maxValue={5000}
         formatLabel={(value) => ``}
         value={values}
         onChange={handleOnChange}

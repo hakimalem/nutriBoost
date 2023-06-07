@@ -1,12 +1,17 @@
+import axios from 'axios';
 import React from 'react';
+import { useAuth } from '../../hooks/useAuth';
+import { toast } from 'react-toastify';
 
-function AddToCartButton({ id, value }) {
+function AddToCartButton({ product, quantity }) {
+  const { auth } = useAuth();
+
   const addToCart = () => {
     axios.post(
       '/api/users/cart/update',
       {
-        product_id: id,
-        quantity: value,
+        product_id: product?._id,
+        quantity,
       },
       {
         headers: {

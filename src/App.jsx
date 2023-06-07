@@ -16,7 +16,7 @@ import { ToastContainer } from 'react-toastify';
 import RequireAuth from './components/common/RequireAuth';
 
 function App() {
-  axios.defaults.baseURL = 'http://192.168.62.166:6106/';
+  axios.defaults.baseURL = 'http://192.168.218.166:6106/';
   // axios.defaults.headers.common['Authorization'] =
   //   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDZhYTI5NTM1YjJhMDA0MjFmYTEyNTgiLCJpYXQiOjE2ODQ3MTAzNDUsImV4cCI6MTY5MjQ4NjM0NX0.pd88_1MriegCLeRh0-JB8OXRqYVciPvtscQ5K4rHe-Q';
 
@@ -49,6 +49,8 @@ function App() {
             <Route path="products/search" element={<ProductsPage />} />
             <Route path="products/category" element={<ProductsPage />} />
             <Route path="products/brand" element={<ProductsPage />} />
+            <Route path="products/priceFilter" element={<ProductsPage />} />
+
             <Route path="products/:id" element={<SingleProduct />} />
             <Route path="contact" element={<ContactUS />} />
             <Route path="*" element={<NotFound />} />

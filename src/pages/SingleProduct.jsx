@@ -37,7 +37,7 @@ export const SingleProduct = () => {
       {/* PREVIEW PRODUCT */}
 
       <div className="flex flex-row w-[80%] justify-start items-start py-[1%]">
-        <ReviewPreview />
+        <ReviewPreview product={product} />
         <MoreDetails product={product} />
       </div>
     </div>

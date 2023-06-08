@@ -18,6 +18,7 @@ import RequireAuth from "./components/common/RequireAuth";
 
 function App() {
   axios.defaults.baseURL = "http://192.168.62.166:6106/";
+  // axios.defaults.baseURL = "http://localhost:6106/";
   // axios.defaults.headers.common['Authorization'] =
   //   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDZhYTI5NTM1YjJhMDA0MjFmYTEyNTgiLCJpYXQiOjE2ODQ3MTAzNDUsImV4cCI6MTY5MjQ4NjM0NX0.pd88_1MriegCLeRh0-JB8OXRqYVciPvtscQ5K4rHe-Q';
 

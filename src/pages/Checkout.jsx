@@ -39,7 +39,7 @@ export const Checkout = () => {
     <div className="px28 py-6 min-h-screen lg:px-52 md:px-20 px-10">
       <div className="flex justify-between">
         <div className="flex-1">
-          <CustomStepper cart={cart} />
+          <CustomStepper cart={cart} totalPrice={totalPrice} />
         </div>
         <div>
           <OrderSummary cart={cart} />

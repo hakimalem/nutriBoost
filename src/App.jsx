@@ -15,6 +15,7 @@ import { Wishlist } from './pages/Wishlist';
 import axios from 'axios';
 import { ToastContainer } from 'react-toastify';
 import RequireAuth from './components/common/RequireAuth';
+import PaymentSuccessPage from './pages/SuccesPage';
 
 function App() {
   axios.defaults.baseURL = 'http://172.20.10.8:6106/';
@@ -55,6 +56,7 @@ function App() {
             <Route path="products/:id" element={<SingleProduct />} />
             <Route path="contact" element={<ContactUS />} />
             <Route path="orders" element={<Orders />} />
+            <Route path="succesPayment" element={<PaymentSuccessPage />} />
             <Route path="*" element={<NotFound />} />
             <Route element={<RequireAuth />}>
               <Route path="cart" element={<Cart />} />

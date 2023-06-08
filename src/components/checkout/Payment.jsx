@@ -30,6 +30,7 @@ export const Payment = () => {
             type="text"
             id="cardNumber"
             name="cardNumber"
+            required
             className="focus:outline-none border-text-gray border px-3 py-2 rounded-sm w-full"
           />
         </div>
@@ -41,6 +42,7 @@ export const Payment = () => {
             type="text"
             id="holderName"
             name="holderName"
+            required
             className="focus:outline-none border-text-gray border px-3 py-2 rounded-sm w-full"
           />
         </div>
@@ -52,6 +54,7 @@ export const Payment = () => {
             type="date"
             id="expiryDate"
             name="expiryDate"
+            required
             className="focus:outline-none border-text-gray border px-3 py-2 rounded-sm w-full"
           />
         </div>
@@ -62,6 +65,7 @@ export const Payment = () => {
           <input
             type="text"
             id="cvvCode"
+            required
             name="cvvCode"
             className="focus:outline-none border-text-gray border px-3 py-2 rounded-sm w-full"
           />

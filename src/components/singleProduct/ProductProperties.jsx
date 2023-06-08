@@ -79,7 +79,11 @@ const ProductProperties = ({ product }) => {
         </div>
         {/* BUTTONS */}
         <div className="flex items-center gap-3 mb-[4%]">
-          <AddToCartButton product={product} quantity={value} />
+          <AddToCartButton
+            product={product}
+            quantity={value}
+            quantityInStock={product?.quantity}
+          />
           <AddToFavorites />
           <ShareButton />
         </div>

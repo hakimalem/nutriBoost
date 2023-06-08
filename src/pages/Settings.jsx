@@ -47,7 +47,7 @@ export const Settings = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
+      const response = await axios.put(
         '/api/users/updateMe',
         {
           name,

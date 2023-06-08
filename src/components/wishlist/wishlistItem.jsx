@@ -64,9 +64,9 @@ export const WishlistItem = ({ item, wishlist, setWishlist }) => {
         <h2 className="text-l">{item?.name}</h2>
       </div>
       <div className="col-span-3 flex items-center gap-6  w-fit">
-        {inStock ? (
+        {item.quantity >= 0 ? (
           <p className="bg-primary border-none text-white px-3 py- rounded-md">
-            In stock
+            In stock ({item?.quantity})
           </p>
         ) : (
           <p className="bg-red-700 border-none text-white px-3 py- rounded-md">

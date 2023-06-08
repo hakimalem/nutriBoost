@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useAuth } from '../../hooks/useAuth';
 export const CartItem = ({ item, setCart, cart }) => {
-  console.log({ cart });
+  console.log({ item });
   const { auth, setAuth } = useAuth();
   const increaseQuantity = async () => {
     await axios
@@ -125,7 +125,8 @@ export const CartItem = ({ item, setCart, cart }) => {
         <button
           className="px-4 py-2 border-r hover:bg-primary hover:text-white text-xl duration-200"
           onClick={() => {
-            increaseQuantity();
+            if (item?.quantity >= quantity + 1) increaseQuantity();
+            else toast.error('Quantity out of stock');
           }}
         >
           +

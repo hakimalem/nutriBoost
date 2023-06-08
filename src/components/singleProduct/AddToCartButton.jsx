@@ -3,7 +3,7 @@ import React from 'react';
 import { useAuth } from '../../hooks/useAuth';
 import { toast } from 'react-toastify';
 
-function AddToCartButton({ product, quantity }) {
+function AddToCartButton({ product, quantity, quantityInStock }) {
   const { auth } = useAuth();
 
   const addToCart = () => {
@@ -27,7 +27,10 @@ function AddToCartButton({ product, quantity }) {
 
   return (
     <button
-      onClick={addToCart}
+      onClick={() => {
+        if (quantity <= quantityInStock) addToCart();
+        else toast.error('Quantity out of stock');
+      }}
       className="h-full bg-primary hover:bg-green-300 active:bg-green-500 text-white font-poppinsBold py-2 px-4 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
     >
       Add to Cart

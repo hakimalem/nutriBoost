@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Button, ButtonLight } from '../components/form/auth/Button';
 import { Input } from '../components/form/auth/Input';
 import { FcGoogle } from 'react-icons/fc';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
 
 import { useRef, useState, useEffect } from 'react';
@@ -115,9 +115,15 @@ export const Login = () => {
             <Button bg="main" type="submit">
               Login now
             </Button>
-            <ButtonLight bg="main-light" type="button">
+            <ButtonLight
+              onClick={() => {
+                navigate('/');
+              }}
+              bg="main-light"
+              type="button"
+            >
               <span className="flex justify-center items-center gap-1">
-                <FcGoogle /> Login now
+                Guest
               </span>
             </ButtonLight>
           </div>
